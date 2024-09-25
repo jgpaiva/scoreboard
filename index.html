@@ -23,31 +23,35 @@
         }
 
         /* Left and right sides with equal width */
-        .left, .right {
+        .button-main-left, .button-main-right {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 70vh;
+            font-size: min(70vh,40vw);
             font-family: Arial, sans-serif;
             color: white;
         }
 
         /* Left part with red background */
-        .left {
+        .button-main-left {
             background-color: red;
+          user-select: none;
+            cursor: pointer;
         }
 
         /* Right part with blue background */
-        .right {
+        .button-main-right {
             background-color: blue;
+          user-select: none;
+            cursor: pointer;
         }
 
         /* Button section at the bottom, split into left and right */
         .button-section {
             display: flex;
             width: 100%;
-            height: 15%; /* Adjust this height as necessary */
+            height: 10%; /* Adjust this height as necessary */
         }
 
         .button-left, .button-right, .button-center {
@@ -67,6 +71,7 @@
             background-color: red;
             border-top: 1px solid black;
             padding-left: 5vw;
+          user-select: none;
         }
 
         /* Right button with blue background */
@@ -74,19 +79,21 @@
             background-color: blue;
             border-top: 1px solid black;
             padding-right: 5vw;
+          user-select: none;
         }
 
         /* Center button with neutral color */
         .button-center {
             background-color: grey;
             width: 10%;
+          user-select: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="left">13</div>
-        <div class="right">8</div>
+        <div class="button-main-left">13</div>
+        <div class="button-main-right">8</div>
     </div>
 
     <div class="button-section">
@@ -94,7 +101,7 @@
         <div class="button-left">-</div>
 
         <!-- Center reset button -->
-        <div class="button-center">Reset</div>
+        <div class="button-center">⟲</div>
 
         <!-- Right minus button -->
         <div class="button-right">-</div>
