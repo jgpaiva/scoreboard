@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <style>
+        /* Ensure the layout takes full screen width and height */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Container for the two main parts */
+        .container {
+            display: flex;
+            flex: 1; /* Takes up all available space except the button area */
+            width: 100%;
+        }
+
+        /* Left and right sides with equal width */
+        .left, .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70vh;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Left part with red background */
+        .left {
+            background-color: red;
+        }
+
+        /* Right part with blue background */
+        .right {
+            background-color: blue;
+        }
+
+        /* Button section at the bottom, split into left and right */
+        .button-section {
+            display: flex;
+            width: 100%;
+            height: 15%; /* Adjust this height as necessary */
+        }
+
+        .button-left, .button-right, .button-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            color: white;
+            cursor: pointer;
+            width: 45%;
+        }
+
+        /* Left button with red background */
+        .button-left {
+            background-color: red;
+            border-top: 1px solid black;
+            padding-left: 5vw;
+        }
+
+        /* Right button with blue background */
+        .button-right {
+            background-color: blue;
+            border-top: 1px solid black;
+            padding-right: 5vw;
+        }
+
+        /* Center button with neutral color */
+        .button-center {
+            background-color: grey;
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">13</div>
+        <div class="right">8</div>
+    </div>
+
+    <div class="button-section">
+        <!-- Left minus button -->
+        <div class="button-left">-</div>
+
+        <!-- Center reset button -->
+        <div class="button-center">Reset</div>
+
+        <!-- Right minus button -->
+        <div class="button-right">-</div>
+    </div>
+</body>
+</html>
