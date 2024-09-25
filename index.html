@@ -1,110 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoreboard</title>
-    <style>
-        /* Ensure the layout takes full screen width and height */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Scoreboard</title>
+  <style>
+    /* Ensure the layout takes full screen width and height */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* Container for the two main parts */
-        .container {
-            display: flex;
-            flex: 1; /* Takes up all available space except the button area */
-            width: 100%;
-        }
+    /* Container for the two main parts */
+    .container {
+      display: flex;
+      flex: 1;
+      /* Takes up all available space except the button area */
+      width: 100%;
+    }
 
-        /* Left and right sides with equal width */
-        .button-main-left, .button-main-right {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: min(70vh,40vw);
-            font-family: Arial, sans-serif;
-            color: white;
-        }
+    /* Left and right sides with equal width */
+    .button-main-left,
+    .button-main-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: min(70vh, 40vw);
+      font-family: Arial, sans-serif;
+      color: white;
+      position: relative;
+      /* For absolute positioning of dots */
+    }
 
-        /* Left part with red background */
-        .button-main-left {
-            background-color: red;
-          user-select: none;
-            cursor: pointer;
-        }
+    /* Left part with red background */
+    .button-main-left {
+      background-color: red;
+      user-select: none;
+      cursor: pointer;
+    }
 
-        /* Right part with blue background */
-        .button-main-right {
-            background-color: blue;
-          user-select: none;
-            cursor: pointer;
-        }
+    /* Right part with blue background */
+    .button-main-right {
+      background-color: blue;
+      user-select: none;
+      cursor: pointer;
+    }
 
-        /* Button section at the bottom, split into left and right */
-        .button-section {
-            display: flex;
-            width: 100%;
-            height: 10%; /* Adjust this height as necessary */
-        }
+    /* Floating dot style */
+    .dot {
+      width: 5vw;
+      height: 5vw;
+      border-radius: 50%;
+      font-size: 5vw;
+      position: absolute;
+    }
 
-        .button-left, .button-right, .button-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            font-size: 2rem;
-            font-family: Arial, sans-serif;
-            color: white;
-            cursor: pointer;
-            width: 45%;
-        }
+    /* Positioning the dot in the top-left of the left section */
+    .button-main-left .dot {
+      top: 75vh;
+      left: 5vw;
+    }
 
-        /* Left button with red background */
-        .button-left {
-            background-color: red;
-            border-top: 1px solid black;
-            padding-left: 5vw;
-          user-select: none;
-        }
+    /* Positioning the dot in the top-right of the right section */
+    .button-main-right .dot {
+      top: 75vh;
+      right: 5vw;
+    }
 
-        /* Right button with blue background */
-        .button-right {
-            background-color: blue;
-            border-top: 1px solid black;
-            padding-right: 5vw;
-          user-select: none;
-        }
+    /* Button section at the bottom, split into left and right */
+    .button-section {
+      display: flex;
+      width: 100%;
+      height: 10%;
+      /* Adjust this height as necessary */
+    }
 
-        /* Center button with neutral color */
-        .button-center {
-            background-color: grey;
-            width: 10%;
-          user-select: none;
-        }
-    </style>
+    .button-left,
+    .button-right,
+    .button-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      font-size: 2rem;
+      font-family: Arial, sans-serif;
+      color: white;
+      cursor: pointer;
+      width: 45%;
+    }
+
+    /* Left button with red background */
+    .button-left {
+      background-color: red;
+      border-top: 1px solid black;
+      padding-left: 5vw;
+      user-select: none;
+    }
+
+    /* Right button with blue background */
+    .button-right {
+      background-color: blue;
+      border-top: 1px solid black;
+      padding-right: 5vw;
+      user-select: none;
+    }
+
+    /* Center button with neutral color */
+    .button-center {
+      background-color: grey;
+      width: 10%;
+      user-select: none;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="button-main-left">13</div>
-        <div class="button-main-right">8</div>
+  <div class="container">
+    <div class="button-main-left">13
+
+      <div class="dot">
+
+        <i class="fas fa-volleyball-ball" style="color: black;"></i>
+      </div>
+
+    </div>
+    <div class="button-main-right">8
+      <div class="dot">
+
+        <i class="fas fa-volleyball-ball" style="color: black;"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-section">
+    <!-- Left minus button -->
+    <div class="button-left">-
     </div>
 
-    <div class="button-section">
-        <!-- Left minus button -->
-        <div class="button-left">-</div>
+    <!-- Center reset button -->
+    <div class="button-center">⟲</div>
 
-        <!-- Center reset button -->
-        <div class="button-center">⟲</div>
-
-        <!-- Right minus button -->
-        <div class="button-right">-</div>
-    </div>
+    <!-- Right minus button -->
+    <div class="button-right">-</div>
+  </div>
 </body>
+
 </html>
