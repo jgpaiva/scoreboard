@@ -56,9 +56,9 @@
 
     /* Floating dot style */
     .dot {
-      width: max(5vw,5vh);
-      height: max(5vw,5vh);
-      font-size: max(5vw,5vh);
+      width: max(5vw, 5vh);
+      height: max(5vw, 5vh);
+      font-size: max(5vw, 5vh);
       position: absolute;
     }
 
@@ -97,33 +97,33 @@
     }
 
     /* Left button with red background */
-    .button-left {
+    .button-undo {
       background-color: red;
-      border-top: 1px solid black;
-      padding-left: 5vw;
+      ;
       user-select: none;
+      position: absolute;
+      top: 2vh;
+      left: 2vh;
+      font-size: 10vh;
+      cursor: pointer;
     }
 
     /* Right button with blue background */
-    .button-right {
+    .button-reset {
       background-color: blue;
-      border-top: 1px solid black;
-      padding-right: 5vw;
       user-select: none;
-    }
-
-    /* Center button with neutral color */
-    .button-center {
-      background-color: grey;
-      width: 10%;
-      user-select: none;
+      position: absolute;
+      top: 2vh;
+      right: 2vh;
+      font-size: 10vh;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="button-main-left">13
+    <div onclick="alert('left was pressed!')" class="button-main-left">13
 
       <div class="dot">
 
@@ -131,7 +131,7 @@
       </div>
 
     </div>
-    <div class="button-main-right">8
+    <div onclick="alert('Right was pressed!')" class="button-main-right">8
       <div class="dot">
 
         <i class="fas fa-volleyball-ball" style="color: black;"></i>
@@ -139,17 +139,9 @@
     </div>
   </div>
 
-  <div class="button-section">
-    <!-- Left minus button -->
-    <div class="button-left">-
-    </div>
+  <div class="button-undo" onclick="alert('Undo was pressed!')">↩</div>
 
-    <!-- Center reset button -->
-    <div class="button-center">⟲</div>
-
-    <!-- Right minus button -->
-    <div class="button-right">-</div>
-  </div>
+  <div class="button-reset" onclick="alert('Reset was pressed!')">⟲</div>
 </body>
 
 </html>
