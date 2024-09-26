@@ -16,6 +16,7 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+      user-select: none;
     }
 
     /* Container for the two main parts */
@@ -38,7 +39,6 @@
       color: white;
       position: relative;
       cursor: pointer;
-      user-select: none;
     }
 
     .button-main-left {
@@ -83,7 +83,6 @@
     }
 
     .button-main-left .button-undo {
-      user-select: none;
       top: 2vh;
       left: 2vh;
       cursor: pointer;
@@ -91,7 +90,6 @@
 
     /* Right button with blue background */
     .button-main-right .button-reset {
-      user-select: none;
       top: 2vh;
       right: 2vh;
       cursor: pointer;
@@ -127,14 +125,14 @@
       <div class="button-undo" onclick="event.stopPropagation();alert('Undo was pressed!')">↩</div>
       <div class="ball">
 
-        <i class="fas fa-volleyball-ball" style="color: black;"></i>
+        <i class="fas fa-volleyball-ball"></i>
       </div>
 
     </div>
     <div onclick="alert('Right was pressed!')" class="button-main-right">8
       <div class="button-reset" onclick="event.stopPropagation();alert('Reset was pressed!')">⟲</div>
       <div class="ball">
-        <i class="fas fa-volleyball-ball" style="color: black;"></i>
+        <i class="fas fa-volleyball-ball"></i>
       </div>
     </div>
   </div>
