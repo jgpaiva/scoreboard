@@ -22,8 +22,8 @@
     .container {
       display: flex;
       flex: 1;
-      /* Takes up all available space except the button area */
       width: 100%;
+      height: 50%;
     }
 
     /* Left and right sides with equal width */
@@ -55,68 +55,72 @@
     }
 
     /* Floating dot style */
-    .dot {
+    .ball {
       width: max(5vw, 5vh);
       height: max(5vw, 5vh);
       font-size: max(5vw, 5vh);
       position: absolute;
+      bottom: 2vh;
     }
 
     /* Positioning the dot in the top-left of the left section */
-    .button-main-left .dot {
-      top: 75vh;
-      left: 5vw;
+    .button-main-left .ball {
+      left: 2vw;
     }
 
     /* Positioning the dot in the top-right of the right section */
-    .button-main-right .dot {
-      top: 75vh;
-      right: 5vw;
+    .button-main-right .ball {
+      right: 2vw;
     }
 
-    /* Button section at the bottom, split into left and right */
-    .button-section {
-      display: flex;
-      width: 100%;
-      height: 10%;
-      /* Adjust this height as necessary */
-    }
-
-    .button-left,
-    .button-right,
-    .button-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      font-size: 2rem;
+    .button-undo,
+    .button-reset {
       font-family: Arial, sans-serif;
-      color: white;
+      color: black;
       cursor: pointer;
-      width: 45%;
+      position: absolute;
+      width: max(5vw, 5vh);
+      height: max(5vw, 5vh);
+      font-size: max(5vw, 5vh);
     }
 
     /* Left button with red background */
-    .button-undo {
+    .button-main-left .button-undo {
       background-color: red;
-      ;
       user-select: none;
-      position: absolute;
       top: 2vh;
       left: 2vh;
-      font-size: 10vh;
       cursor: pointer;
     }
 
     /* Right button with blue background */
-    .button-reset {
+    .button-main-right .button-reset {
       background-color: blue;
       user-select: none;
-      position: absolute;
       top: 2vh;
       right: 2vh;
-      font-size: 10vh;
       cursor: pointer;
+    }
+
+    .instructions {
+      padding: 1vh;
+      visibility: visible;
+      height: 50%;
+      display: block;
+    }
+
+    @media (orientation: landscape) {
+      .instructions {
+        display: none;
+      }
+
+      .ball {
+        bottom: 2vh;
+      }
+
+      .container {
+        height: 100%;
+      }
     }
   </style>
 </head>
@@ -124,24 +128,34 @@
 <body>
   <div class="container">
     <div onclick="alert('left was pressed!')" class="button-main-left">13
-
-      <div class="dot">
+      <div class="button-undo" onclick="alert('Undo was pressed!')">↩</div>
+      <div class="ball">
 
         <i class="fas fa-volleyball-ball" style="color: black;"></i>
       </div>
 
     </div>
     <div onclick="alert('Right was pressed!')" class="button-main-right">8
-      <div class="dot">
-
+      <div class="button-reset" onclick="alert('Reset was pressed!')">⟲</div>
+      <div class="ball">
         <i class="fas fa-volleyball-ball" style="color: black;"></i>
       </div>
     </div>
   </div>
-
-  <div class="button-undo" onclick="alert('Undo was pressed!')">↩</div>
-
-  <div class="button-reset" onclick="alert('Reset was pressed!')">⟲</div>
+  <div class="instructions">
+    <p>
+      This is a simple scoreboard. Just touch on each side of the scoreboard to increase the score. The ball will switch to the side that last scored.
+    </p>
+    <p>
+      To undo the last point, touch ↩.
+    </p>
+    <p>
+      To reset the scores to zero, touch ⟲.
+    </p>
+    <p>
+      To make this message go away, switch your phone to landscape.
+    </p>
+  </div>
 </body>
 
 </html>
