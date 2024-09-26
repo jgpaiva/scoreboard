@@ -37,21 +37,19 @@
       font-family: Arial, sans-serif;
       color: white;
       position: relative;
-      /* For absolute positioning of dots */
+      cursor: pointer;
+      user-select: none;
     }
 
-    /* Left part with red background */
     .button-main-left {
-      background-color: red;
-      user-select: none;
-      cursor: pointer;
+      background-color: #712836;
+      color: white;
     }
 
     /* Right part with blue background */
     .button-main-right {
-      background-color: blue;
-      user-select: none;
-      cursor: pointer;
+      background-color: #1B4469;
+      color: white;
     }
 
     /* Floating dot style */
@@ -79,12 +77,11 @@
       color: black;
       cursor: pointer;
       position: absolute;
-      width: max(5vw, 5vh);
-      height: max(5vw, 5vh);
-      font-size: max(5vw, 5vh);
+      width: max(6vw, 6vh);
+      height: max(6vw, 6vh);
+      font-size: max(6vw, 6vh);
     }
 
-    /* Left button with red background */
     .button-main-left .button-undo {
       user-select: none;
       top: 2vh;
@@ -143,7 +140,7 @@
   </div>
   <div class="instructions">
     <p>
-      Touch on each side of the scoreboard to increase the score. The ball will move to the side that last scored.
+      Touch each side of the scoreboard to increase the score. The ball will move to the side that last scored.
     </p>
     <p>
       To undo the last point, touch ↩.
