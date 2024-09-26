@@ -86,7 +86,6 @@
 
     /* Left button with red background */
     .button-main-left .button-undo {
-      background-color: red;
       user-select: none;
       top: 2vh;
       left: 2vh;
@@ -95,7 +94,6 @@
 
     /* Right button with blue background */
     .button-main-right .button-reset {
-      background-color: blue;
       user-select: none;
       top: 2vh;
       right: 2vh;
@@ -107,6 +105,7 @@
       visibility: visible;
       height: 50%;
       display: block;
+      font-family: Arial, sans-serif;
     }
 
     @media (orientation: landscape) {
@@ -128,7 +127,7 @@
 <body>
   <div class="container">
     <div onclick="alert('left was pressed!')" class="button-main-left">13
-      <div class="button-undo" onclick="alert('Undo was pressed!')">↩</div>
+      <div class="button-undo" onclick="event.stopPropagation();alert('Undo was pressed!')">↩</div>
       <div class="ball">
 
         <i class="fas fa-volleyball-ball" style="color: black;"></i>
@@ -136,7 +135,7 @@
 
     </div>
     <div onclick="alert('Right was pressed!')" class="button-main-right">8
-      <div class="button-reset" onclick="alert('Reset was pressed!')">⟲</div>
+      <div class="button-reset" onclick="event.stopPropagation();alert('Reset was pressed!')">⟲</div>
       <div class="ball">
         <i class="fas fa-volleyball-ball" style="color: black;"></i>
       </div>
@@ -144,7 +143,7 @@
   </div>
   <div class="instructions">
     <p>
-      This is a simple scoreboard. Just touch on each side of the scoreboard to increase the score. The ball will switch to the side that last scored.
+      Touch on each side of the scoreboard to increase the score. The ball will move to the side that last scored.
     </p>
     <p>
       To undo the last point, touch ↩.
@@ -153,7 +152,7 @@
       To reset the scores to zero, touch ⟲.
     </p>
     <p>
-      To make this message go away, switch your phone to landscape.
+      To make this message go away, turn your phone to landscape.
     </p>
   </div>
 </body>
