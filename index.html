@@ -64,6 +64,7 @@
     /* Positioning the dot in the top-left of the left section */
     .button-main-left .ball {
       left: 2vw;
+      visibility: hidden;
     }
 
     /* Positioning the dot in the top-right of the right section */
@@ -117,21 +118,46 @@
       }
     }
   </style>
+  
+   <script>
+        let leftCount = 0;
+
+        function incrementNumberLeft() {
+            leftCount++;
+            document.getElementById('ball-right').style.visibility = 'hidden';
+            document.getElementById('ball-left').style.visibility = 'visible';
+            document.getElementById('main-left').innerText = leftCount;
+        }
+        let rightCount = 0;
+
+        function incrementNumberRight() {
+            rightCount++;
+            document.getElementById('ball-left').style.visibility = 'hidden';
+            document.getElementById('ball-right').style.visibility = 'visible';
+            document.getElementById('main-right').innerText = rightCount;
+        }
+     
+        function resetNumbers() {
+            rightCount = 0;
+            leftCount = 0;
+            document.getElementById('main-left').innerText = leftCount;
+            document.getElementById('main-right').innerText = rightCount;
+        }
+    </script>
 </head>
 
 <body>
   <div class="container">
-    <div onclick="alert('left was pressed!')" class="button-main-left">13
+    <div onclick="incrementNumberLeft()" class="button-main-left"><div id="main-left">0</div>
       <div class="button-undo" onclick="event.stopPropagation();alert('Undo was pressed!')">↩</div>
-      <div class="ball">
-
+      <div class="ball" id="ball-left">
         <i class="fas fa-volleyball-ball"></i>
       </div>
 
     </div>
-    <div onclick="alert('Right was pressed!')" class="button-main-right">8
-      <div class="button-reset" onclick="event.stopPropagation();alert('Reset was pressed!')">⟲</div>
-      <div class="ball">
+    <div onclick="incrementNumberRight()" class="button-main-right"><div id="main-right">0</div>
+      <div class="button-reset" onclick="event.stopPropagation();resetNumbers()">⟲</div>
+      <div class="ball" id="ball-right">
         <i class="fas fa-volleyball-ball"></i>
       </div>
     </div>
