@@ -118,44 +118,73 @@
       }
     }
   </style>
-  
-   <script>
-        let leftCount = 0;
 
-        function incrementNumberLeft() {
-            leftCount++;
-            document.getElementById('ball-right').style.visibility = 'hidden';
-            document.getElementById('ball-left').style.visibility = 'visible';
-            document.getElementById('main-left').innerText = leftCount;
-        }
-        let rightCount = 0;
+  <script>
+    // for last value, true means "right", false means "left"
+    let scoreHistory = [
+      [0, 0, true]
+    ];
+    let currentIndex = 0;
+    let leftCount = 0;
 
-        function incrementNumberRight() {
-            rightCount++;
-            document.getElementById('ball-left').style.visibility = 'hidden';
-            document.getElementById('ball-right').style.visibility = 'visible';
-            document.getElementById('main-right').innerText = rightCount;
-        }
-     
-        function resetNumbers() {
-            rightCount = 0;
-            leftCount = 0;
-            document.getElementById('main-left').innerText = leftCount;
-            document.getElementById('main-right').innerText = rightCount;
-        }
-    </script>
+    function applyScore() {
+      const [leftCount, rightCount, isRight] = scoreHistory[currentIndex];
+      if (isRight) {
+        document.getElementById('ball-right').style.visibility = 'visible';
+        document.getElementById('ball-left').style.visibility = 'hidden';
+      } else {
+        document.getElementById('ball-right').style.visibility = 'hidden';
+        document.getElementById('ball-left').style.visibility = 'visible';
+      }
+      document.getElementById('main-left').innerText = leftCount;
+      document.getElementById('main-right').innerText = rightCount;
+    }
+
+    function incrementNumberLeft() {
+      const [leftCount, rightCount, isRight] = scoreHistory[currentIndex];
+      currentIndex++;
+      scoreHistory[currentIndex] = [leftCount + 1, rightCount, false];
+      applyScore();
+    }
+
+    function incrementNumberRight() {
+      const [leftCount, rightCount, isRight] = scoreHistory[currentIndex];
+      currentIndex++;
+      scoreHistory[currentIndex] = [leftCount, rightCount + 1, true];
+      applyScore();
+    }
+
+    function resetNumbers() {
+      scoreHistory = [
+        [0, 0, true]
+      ];
+      currentIndex = 0;
+      applyScore();
+    }
+
+    function undoNumbers() {
+      if (currentIndex == 0) {
+        return;
+      }
+      scoreHistory.pop();
+      currentIndex--;
+      applyScore();
+    }
+  </script>
 </head>
 
 <body>
   <div class="container">
-    <div onclick="incrementNumberLeft()" class="button-main-left"><div id="main-left">0</div>
-      <div class="button-undo" onclick="event.stopPropagation();alert('Undo was pressed!')">↩</div>
+    <div onclick="incrementNumberLeft()" class="button-main-left">
+      <div id="main-left">0</div>
+      <div class="button-undo" onclick="event.stopPropagation();undoNumbers()">↩</div>
       <div class="ball" id="ball-left">
         <i class="fas fa-volleyball-ball"></i>
       </div>
 
     </div>
-    <div onclick="incrementNumberRight()" class="button-main-right"><div id="main-right">0</div>
+    <div onclick="incrementNumberRight()" class="button-main-right">
+      <div id="main-right">0</div>
       <div class="button-reset" onclick="event.stopPropagation();resetNumbers()">⟲</div>
       <div class="ball" id="ball-right">
         <i class="fas fa-volleyball-ball"></i>
@@ -173,7 +202,7 @@
       ⟲ to reset the score
     </p>
     <p>
-      <span><i class="fas fa-mobile-alt icon fa-rotate-270" style="margin: 0.2em"></i></span>  to hide this message
+      <span><i class="fas fa-mobile-alt icon fa-rotate-270" style="margin: 0.2em"></i></span> to hide this message
     </p>
   </div>
 </body>
