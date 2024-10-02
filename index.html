@@ -3,6 +3,7 @@
 
 <head>
   <title>Scoreboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <meta name="description" content="A simple online scoreboard that works in mobile." />
   <meta property="og:title" content="Simple scoreboard" />
   <meta property="og:url" content="https://jgpaiva.github.io/scoreboard" />
@@ -10,7 +11,6 @@
   <meta property="og:image" content="https://jgpaiva.github.io/scoreboard/preview.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <title>Scoreboard</title>
   <style>
     /* Ensure the layout takes full screen width and height */
@@ -23,6 +23,8 @@
       display: flex;
       flex-direction: column;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #000000;
     }
 
     /* Container for the two main parts */
@@ -84,21 +86,21 @@
       color: black;
       cursor: pointer;
       position: absolute;
-      width: max(6vw, 6vh);
-      height: max(6vw, 6vh);
-      font-size: max(6vw, 6vh);
+      width: max(5vw, 5vh);
+      height: max(5vw, 5vh);
+      font-size: max(5vw, 5vh);
     }
 
     .button-main-left .button-undo {
-      top: 2vh;
-      left: 2vh;
+      top: 3vh;
+      left: 3vh;
       cursor: pointer;
     }
 
     /* Right button with blue background */
     .button-main-right .button-reset {
-      top: 2vh;
-      right: 2vh;
+      top: 3vh;
+      right: 3vh;
       cursor: pointer;
     }
 
@@ -108,6 +110,7 @@
       height: 50%;
       display: block;
       font-family: Arial, sans-serif;
+      background-color: #d0d0d0;
     }
 
     @media (orientation: landscape) {
@@ -183,7 +186,7 @@
   <div class="container">
     <div onclick="incrementNumberLeft()" class="button-main-left">
       <div id="main-left">0</div>
-      <div class="button-undo" onclick="event.stopPropagation();undoNumbers()">↩</div>
+      <div class="button-undo" onclick="event.stopPropagation();undoNumbers()"><i class="fas fa-undo"></i></div>
       <div class="ball" id="ball-left">
         <i class="fas fa-volleyball-ball"></i>
       </div>
@@ -191,7 +194,7 @@
     </div>
     <div onclick="incrementNumberRight()" class="button-main-right">
       <div id="main-right">0</div>
-      <div class="button-reset" onclick="event.stopPropagation();resetNumbers()">⟲</div>
+      <div class="button-reset" onclick="event.stopPropagation();resetNumbers()"><i class="fas fa-sync"></i> </div>
       <div class="ball" id="ball-right">
         <i class="fas fa-volleyball-ball"></i>
       </div>
@@ -202,10 +205,10 @@
       <span style="color: #712836; font-size: 2em">&#9632;</span> or <span style="color: #1B4469; font-size: 2em">&#9632;</span> to score
     </p>
     <p>
-      ↩ to undo last point
+      <i class="fas fa-undo"></i> to undo last point
     </p>
     <p>
-      ⟲ to reset the score
+      <i class="fas fa-sync"></i> to reset the score
     </p>
     <p>
       <span><i class="fas fa-mobile-alt icon fa-rotate-270" style="margin: 0.2em"></i></span> to hide this message
